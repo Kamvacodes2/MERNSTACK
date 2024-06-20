@@ -1,6 +1,5 @@
 import ReviewsDAO from '../dao/reviewsDAO.js'
 
-
 export default class ReviewsController {
     static async apiPostReview(req, res, next) {
         try {
@@ -10,7 +9,6 @@ export default class ReviewsController {
                 name: req.body.name,
                 _id: req.body.user_id
             }
-
             const date = new Date()
             const ReviewResponse = await ReviewsDAO.addReview(
                 movieId,
@@ -54,7 +52,6 @@ export default class ReviewsController {
                 reviewId,
                 userId,
             )
-
             res.json({ status: "success " })
         } catch (e) {
             res.status(500).json({ error: e.message })
